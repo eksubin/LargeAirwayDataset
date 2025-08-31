@@ -1,0 +1,3 @@
+How to correct issues with the segmentation arrangement
+1) Use the metadata from a good segmentation from data.
+2) Replace the np.array - which is the position of the sample.
