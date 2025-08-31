@@ -40,8 +40,8 @@ print_config()
 # %%
 # Convert train and validation images into lists with locations
 print("Model initialization")
-train_dir = "./Data/VoiceUsers/Train/David/"
-val_dir = "./Data/VoiceUsers/Val/Nasal25/"
+train_dir = "./data/Train/David/"
+val_dir = "./data/Val/Nasal25/"
 
 train_nrrd_files = sorted([os.path.join(train_dir, f) for f in os.listdir(
     train_dir) if f.endswith(".nrrd") and not f.endswith(".seg.nrrd")])
@@ -143,7 +143,7 @@ model = UNet(
 
 # %%
 pre_trained_state_dict = torch.load(
-    "./logs/VanillaUNet3D/Unet3D_1500EP_25Samples_32patch.pth")
+    "./models/VanillaUNet3D/Unet3D_1500EP_25Samples_32patch.pth")
 
 # %%
 model_state_dict = model.state_dict()
@@ -236,7 +236,7 @@ for epoch in range(max_epochs):
                 best_metric = metric
                 best_metric_epoch = epoch + 1
                 torch.save(model.state_dict(), os.path.join(
-                    out_root, "Unet3D_1500EP_12Samples_32patch_David" + ".pth"))
+                    out_root, "Unet3D_1500EP_7Subjects_32patch_David" + ".pth"))
                 print("saved new best metric model")
             print(
                 f"current epoch: {epoch + 1} current mean dice: {metric:.4f}"

@@ -40,8 +40,8 @@ print_config()
 # %%
 # Convert train and validation images into lists with locations
 print("Model initialization")
-train_dir = "./Data/VoiceUsers/Train/Train"
-val_dir = "./Data/VoiceUsers/Val/Nasal25"
+train_dir = "./data/Train/Train"
+val_dir = "./data/Val/Nasal25"
 
 train_nrrd_files = sorted([os.path.join(train_dir, f) for f in os.listdir(
     train_dir) if f.endswith(".nrrd") and not f.endswith(".seg.nrrd")])
@@ -143,7 +143,7 @@ model = UNet(
 
 # %%
 pre_trained_state_dict = torch.load(
-    "./logs/VanillaUNet3D/best_model_OSIC_1000EP.pth")
+    "./models/VanillaUNet3D/Unet3D_1500EP_25Samples_32patch.pth")
 
 # %%
 model_state_dict = model.state_dict()

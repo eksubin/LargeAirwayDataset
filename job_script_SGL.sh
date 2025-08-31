@@ -9,5 +9,5 @@
 
 conda activate unet3D
 #export CUDA_VISIBLE_DEVICES=0
-export CUDA_VISIBLE_DEVICES=0,1,2
+export CUDA_VISIBLE_DEVICES=0,1
 python VanillaUNet3DFineTuneDavid.py
